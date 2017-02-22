@@ -1,6 +1,8 @@
 Show.delete_all()
+User.delete_all()
+FavouriteShow.delete_all()
 
-Show.create({
+show1 = Show.create({
   title: "Black Mirror",
   series: 4,
   description: "A television anthology series that shows the dark side of life and technology",
@@ -8,7 +10,7 @@ Show.create({
   programmeID: 1
   })
 
-Show.create({
+show2 = Show.create({
   title: "Sherlock",
   series: 4,
   description: "A modern update finds the famous sleuth and his doctor partner solving crime in 21st century London",
@@ -16,10 +18,29 @@ Show.create({
   programmeID: 2
   })
 
-Show.create({
+show3 = Show.create({
   title: "Planet Earth II",
   series: 1,
   description: "David Attenborough returns in this breathtaking documentary showcasing life on Planet Earth",
   image: "https://images-na.ssl-images-amazon.com/images/M/MV5BZWYxODViMGYtMGE2ZC00ZGQ3LThhMWUtYTVkNGE3OWU4NWRkL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMjYwNDA2MDE@._V1_SY1000_CR0,0,666,1000_AL_.jpg",
   programmeID: 3
   })
+
+user1 = User.create({
+  email: "claire@notmyemail.com",
+  password: "password",
+  password_confirmation: "password"
+  })
+
+favouriteShow1 = FavouriteShow.create(
+  {
+    user: user1,
+    show: show3
+  }
+)
+
+favouriteShow2 = FavouriteShow.create(
+{
+  user: user1,
+  show: show2
+})
